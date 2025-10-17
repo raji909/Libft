@@ -18,15 +18,31 @@ static char	*ft_strncpy(char *dst, const char *src, size_t n)
 
 	i = 0;
 	while (src[i] && i < n)
-		dst[i] = src[i++];
+	{
+		dst[i] = src[i];
+		i++;
+	}
 	dst[i] = '\0';
 	return (dst);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*sub;
+	unsigned int	slen;
+	char			*sub;
 
+	slen = (unsigned int)ft_strlen(s);
+	if (slen <= start)
+		return(NULL);
 	sub = malloc(sizeof(char) * (start + len + 1));
-	return (ft_strcpy(sub, s[start], len))
+	return (ft_strncpy(sub, &s[start], len));
+}
+
+int	main()
+{
+	char *ss = "asdfghjkladam";
+	char *s = ft_substr(ss, 14, 4);
+	int a = 1;
+	printf("%s,%d", s,a);
+	free(s);
 }

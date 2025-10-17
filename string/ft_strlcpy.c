@@ -30,12 +30,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	return (slen);
 }
-
-int main()
-{
-	char d[17];
-	char s[] = "adam raji 1337 0123456789";
-	size_t i = ft_strlcpy(d, s, 25);
-	printf("%zu\n", i);
-	printf("%s\n", d);
-}

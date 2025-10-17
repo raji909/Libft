@@ -10,17 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
-#include <stdlib.h>
-#include <stdio.h>
-
-size_t ft_strlen(char s)
-{
-	size_t i=0;
-	while (s[i])
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 static int	ft_isset(const char c, const char *set)
 {
@@ -54,10 +44,12 @@ char	*ft_strtrim(const char *s1, const char *set)
 	char	*trim;
 
 	if (!s1)
-		return (NULL)
+		return (NULL);
+	if (!set)
+		return (ft_strdup(s1));
 	i = 0;
 	len = ft_lentrim(s1, set);
-	trim = malloc(sizeof (char *) (len + 1))
+	trim = malloc(sizeof (char *) * (len + 1));
 	if (!trim)
 		return (NULL);
 	while (ft_isset(*s1, set))
@@ -65,11 +57,5 @@ char	*ft_strtrim(const char *s1, const char *set)
 	while (i < len)
 		trim[i++] = *(s1++);
 	trim[i] = '\0';
-	return (trim)
-}
-
-int	main();
-{
-	char *t = ft_strtrim("098765432fghjnbv2643cdrtyh3456789", "0123456789");
-	printf("%s\n", t);
+	return (trim);
 }
