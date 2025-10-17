@@ -1,0 +1,61 @@
+libft/
+│── Makefile
+│── libft.h
+│
+└── src/
+    ├── memory/
+    │   ├── ft_memset.c      [v]-> void    *ft_memset(void *s, int c, size_t n);
+    │   ├── ft_bzero.c       [v]-> void     ft_bzero(void *s, size_t n);
+    │   ├── ft_memcpy.c      [v]-> void    *ft_memcpy(void *dest, const void *src, size_t n);
+    │   ├── ft_memmove.c     [v]-> void    *ft_memmove(void *dest, const void *src, size_t n);
+    │   ├── ft_memchr.c      [v]-> void    *ft_memchr(const void *s, int c, size_t n);
+    │   └── ft_memcmp.c      [v]-> int      ft_memcmp(const void *s1, const void *s2, size_t n);
+    │
+    ├── string/
+    │   ├── ft_strlen.c      [v]-> size_t   ft_strlen(const char *s);
+    │   ├── ft_strlcpy.c     [v]-> size_t   ft_strlcpy(char *dst, const char *src, size_t size);
+    │   ├── ft_strlcat.c     [v]-> size_t   ft_strlcat(char *dst, const char *src, size_t size);
+    │   ├── ft_strchr.c      [v]-> char    *ft_strchr(const char *s, int c);
+    │   ├── ft_strrchr.c     [v]-> char    *ft_strrchr(const char *s, int c);
+    │   ├── ft_strncmp.c     [v]-> int      ft_strncmp(const char *s1, const char *s2, size_t n);
+    │   ├── ft_strnstr.c     [v]-> char    *ft_strnstr(const char *big, const char *little, size_t len);
+    │   ├── ft_strdup.c      [v]-> char    *ft_strdup(const char *s1);
+    │   ├── ft_substr.c      [v]-> char    *ft_substr(char const *s, unsigned int start, size_t len);
+    │   ├── ft_strjoin.c     [v]-> char    *ft_strjoin(char const *s1, char const *s2);
+    │   ├── ft_strtrim.c     [v]-> char    *ft_strtrim(char const *s1, char const *set);
+    │   ├── ft_split.c       -> char   **ft_split(char const *s, char c);
+    │   ├── ft_strmapi.c     -> char    *ft_strmapi(char const *s, char (*f)(unsigned int, char));
+    │   └── ft_striteri.c    -> void     ft_striteri(char *s, void (*f)(unsigned int, char*));
+    │
+    ├── char/
+    │   ├── ft_isalpha.c     [v]-> int      ft_isalpha(int c);
+    │   ├── ft_isdigit.c     [v]-> int      ft_isdigit(int c);
+    │   ├── ft_isalnum.c     [v]-> int      ft_isalnum(int c);
+    │   ├── ft_isascii.c     [v]-> int      ft_isascii(int c);
+    │   ├── ft_isprint.c     [v]-> int      ft_isprint(int c);
+    │   ├── ft_toupper.c     [v]-> int      ft_toupper(int c);
+    │   └── ft_tolower.c     [v]-> int      ft_tolower(int c);
+    │
+    ├── conv/
+    │   ├── ft_atoi.c        [v]-> int      ft_atoi(const char *nptr);
+    │   └── ft_itoa.c        [v]-> char    *ft_itoa(int n);
+    │
+    ├── io/
+    │   ├── ft_putchar_fd.c  [v]-> void     ft_putchar_fd(char c, int fd);
+    │   ├── ft_putstr_fd.c   [v]-> void     ft_putstr_fd(char *s, int fd);
+    │   ├── ft_putendl_fd.c  [v]-> void     ft_putendl_fd(char *s, int fd);
+    │   └── ft_putnbr_fd.c   [v]-> void     ft_putnbr_fd(int n, int fd);
+    │
+    ├── alloc/
+    │   └── ft_calloc.c      [v]-> void    *ft_calloc(size_t count, size_t size);
+    │
+    └── list/   (bonus)
+        ├── ft_lstnew.c      -> t_list  *ft_lstnew(void *content);
+        ├── ft_lstadd_front.c-> void     ft_lstadd_front(t_list **lst, t_list *new);
+        ├── ft_lstsize.c     -> int      ft_lstsize(t_list *lst);
+        ├── ft_lstlast.c     -> t_list  *ft_lstlast(t_list *lst);
+        ├── ft_lstadd_back.c -> void     ft_lstadd_back(t_list **lst, t_list *new);
+        ├── ft_lstdelone.c   -> void     ft_lstdelone(t_list *lst, void (*del)(void*));
+        ├── ft_lstclear.c    -> void     ft_lstclear(t_list **lst, void (*del)(void*));
+        ├── ft_lstiter.c     -> void     ft_lstiter(t_list *lst, void (*f)(void*));
+        └── ft_lstmap.c      -> t_list  *ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*));
