@@ -37,11 +37,3 @@ char	*ft_strdup(const char *s1)
 		return (NULL);
 	return (ft_strcpy(s, s1));
 }
-
-int	main()
-{
-	char *s = ft_strdup("hgowibnrjmfv");
-	printf("%s\n", s);
-	s = strdup(s),
-	printf("%s", s);
-}
