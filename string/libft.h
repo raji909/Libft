@@ -20,6 +20,12 @@
 #include <string.h>
 #include <string.h>
 
+//struct:
+typedef struct	split_s{
+	size_t	nstr;
+	size_t	*len;
+} s_t
+
 //memory:
 void	*ft_memset(void *s, int c, int n);
 void	ft_bzero(void *s, size_t n);
