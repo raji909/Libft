@@ -45,7 +45,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 
 	if (!s1)
 		return (NULL);
-	if (!set)
+	if (!set || !*set)
 		return (ft_strdup(s1));
 	i = 0;
 	len = ft_lentrim(s1, set);

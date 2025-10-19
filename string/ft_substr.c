@@ -26,23 +26,27 @@ static char	*ft_strncpy(char *dst, const char *src, size_t n)
 	return (dst);
 }
 
+static char	*ft_empty(void)
+{
+	char	*empty;
+
+	empty = malloc(sizeof(char));
+	if (!empty)
+		return (NULL);
+	*empty = '\0';
+	return (empty);
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	unsigned int	slen;
 	char			*sub;
 
+	if (!s)
+		return (NULL);
 	slen = (unsigned int)ft_strlen(s);
 	if (slen <= start)
-		return(NULL);
+		return(ft_empty());
 	sub = malloc(sizeof(char) * (start + len + 1));
 	return (ft_strncpy(sub, &s[start], len));
-}
-
-int	main()
-{
-	char *ss = "asdfghjkladam";
-	char *s = ft_substr(ss, 14, 4);
-	int a = 1;
-	printf("%s,%d", s,a);
-	free(s);
 }
