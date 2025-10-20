@@ -21,21 +21,3 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 	del(lst[0]->content);
 	free(*lst);
 }
-void f(void *p)
-{
-	free(p);
-}
-
-void a() {
-	system("leaks ./a.out");
-} 
-int main()
-{
-
-	atexit(a);
-	char *p = malloc(2);
-	p[0] = 'a';
-	p[1] = '\0';
-	t_list	*list = ft_lstnew(p);
-	ft_lstclear(&list, f);
-}
