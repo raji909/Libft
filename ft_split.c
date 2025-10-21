@@ -17,7 +17,7 @@ static void	ft_free(char **tab)
 	size_t	i;
 
 	i = 0;
-	while(tab[i])
+	while (tab[i])
 	{
 		free(tab[i]);
 		i++;
@@ -59,7 +59,7 @@ static char	*ft_strfill(char **tab, const char *s, char c)
 	if (!tab[0])
 	{
 		ft_free(tab);
-		return(NULL);
+		return (NULL);
 	}
 	while (i < x)
 	{
@@ -88,9 +88,9 @@ char	**ft_split(const char *s, char c)
 		return (NULL);
 	while (j < y)
 	{
-		s = ft_strfill(&tab[j], s ,c);
+		s = ft_strfill(&tab[j], s, c);
 		if (!s)
-			return(NULL);
+			return (NULL);
 		j++;
 	}
 	return (tab);
