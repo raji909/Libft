@@ -12,14 +12,18 @@
 
 #include "libft.h"
 
-int	ft_sign(char c)
+static unsigned long	ft_number(const char *nptr, size_t i)
 {
-	if (c == '-' || c == '+')
+	unsigned long	n;
+
+	n = 0;
+	while (nptr[i] && nptr[i] < 58 && nptr[i] > 47)
 	{
-		if (c == '-')
-			return (-1);
+		n *= 10;
+		n += nptr[i] - 48;
+		i++;
 	}
-	return (1);
+	return (n);
 }
 
 int	ft_atoi(const char *nptr)
@@ -33,15 +37,13 @@ int	ft_atoi(const char *nptr)
 	s = 1;
 	while (nptr[i] && ((nptr[i] == ' ') || (nptr[i] < 14 && nptr[i] > 8)))
 		i++;
-	s = ft_sign(nptr[i]);
-	if (s == -1)
-		i++;
-	while (nptr[i] && nptr[i] < 58 && nptr[i] > 47)
+	if (nptr[i] == '-' || nptr[i] == '+')
 	{
-		n *= 10;
-		n += nptr[i] - 48;
+		if (nptr[i] == '-')
+			s = -1;
 		i++;
 	}
+	n = ft_number(nptr, i);
 	if (n > LONG_MAX)
 	{
 		if (s < 0)

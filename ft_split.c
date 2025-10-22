@@ -81,11 +81,11 @@ char	**ft_split(const char *s, char c)
 		return (NULL);
 	j = 0;
 	y = ft_strcount(s, c);
-	if (!y)
-		return (NULL);
 	tab = ft_calloc(sizeof(char *), (y + 1));
 	if (!tab)
 		return (NULL);
+	if (!c)
+		return (tab);
 	while (j < y)
 	{
 		s = ft_strfill(&tab[j], s, c);

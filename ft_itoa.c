@@ -56,7 +56,7 @@ char	*ft_itoa(int n)
 	unsigned int	nbr;
 
 	if (n == 0)
-		return ("0");
+		return (ft_strdup("0"));
 	nb = malloc(sizeof(char) * (ft_sizenb(n) + 1));
 	if (!nb)
 		return (NULL);

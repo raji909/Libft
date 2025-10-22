@@ -53,7 +53,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 	len = ft_lentrim(s1, set);
 	if (!len)
 		return (ft_strdup(""));
-	trim = malloc(sizeof (char *) * (len + 1));
+	trim = malloc(sizeof (char) * (len + 1));
 	if (!trim)
 		return (NULL);
 	while (ft_isset(*s1, set))

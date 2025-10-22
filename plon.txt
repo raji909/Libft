@@ -1,6 +1,6 @@
 libft/
-│── Makefile
-│── libft.h
+│── Makefile [v]
+│── libft.h  [v]
 │
 └── src/
     ├── memory/
