@@ -32,6 +32,8 @@ static size_t	ft_lentrim(const char *s1, const char *set)
 	f = ft_strlen(s1) - 1;
 	while (s1[i] && ft_isset(s1[i], set))
 		i++;
+	if (i > f)
+		return (0);
 	while (ft_isset(s1[f], set))
 		f--;
 	return ((f - i) + 1);
@@ -49,6 +51,8 @@ char	*ft_strtrim(const char *s1, const char *set)
 		return (ft_strdup(s1));
 	i = 0;
 	len = ft_lentrim(s1, set);
+	if (!len)
+		return (ft_strdup(""));
 	trim = malloc(sizeof (char *) * (len + 1));
 	if (!trim)
 		return (NULL);

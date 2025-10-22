@@ -47,6 +47,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	slen = (unsigned int)ft_strlen(s);
 	if (slen <= start)
 		return (ft_empty());
-	sub = malloc(sizeof(char) * (start + len + 1));
+	sub = malloc(sizeof(char) * (len + 1));
+	if (!sub)
+		return (NULL);
 	return (ft_strncpy(sub, &s[start], len));
 }

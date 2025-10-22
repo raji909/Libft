@@ -19,9 +19,9 @@ static size_t	ft_sizenb(int n)
 
 	size = 0;
 	nb = n;
-	if (nb < 0)
+	if (n < 0)
 	{
-		nb = -nb;
+		nb = -n;
 		size++;
 	}
 	while (nb > 0)
@@ -58,6 +58,8 @@ char	*ft_itoa(int n)
 	if (n == 0)
 		return ("0");
 	nb = malloc(sizeof(char) * (ft_sizenb(n) + 1));
+	if (!nb)
+		return (NULL);
 	i = 0;
 	nbr = n;
 	if (n < 0)
