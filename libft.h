@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 # define LONG_MAX 9223372036854775807
+# define SIZE_MAX __SIZE_MAX__
 
 # include <stdlib.h>
 # include <unistd.h>
