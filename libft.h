@@ -13,11 +13,10 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# define LONG_MAX 9223372036854775807
+
 # include <stdlib.h>
 # include <unistd.h>
-# include <limits.h>
-# include <stdio.h>
-# include <string.h>
 //struct:
 typedef struct s_list
 {
