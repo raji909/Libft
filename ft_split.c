@@ -27,71 +27,57 @@ static void	ft_free(char **tab)
 
 static size_t	ft_strcount(const char *s, char c)
 {
-	size_t	y;
+	size_t	count;
 
-	y = 0;
+	count = 0;
 	while (*s)
 	{
-		while (*s == c && *s)
+		while (*s && *s == c)
 			s++;
 		if (*s)
-			y++;
-		while (*s != c && *s)
+			count++;
+		while (*s && *s != c)
 			s++;
 	}
-	return (y);
+	return (count);
 }
 
-static char	*ft_strfill(char **tab, const char *s, char c)
+static char	**ft_strfill(char **tab, const char *s, char c, size_t word_count)
 {
 	size_t	i;
 	size_t	j;
-	size_t	x;
+	size_t	start;
 
 	i = 0;
 	j = 0;
-	x = 0;
-	while (*s == c)
-		s++;
-	while (s[x] != c)
-		x++;
-	tab[0] = ft_calloc(sizeof(char), (x + 1));
-	if (!tab[0])
+	while (i < word_count)
 	{
-		ft_free(tab);
-		return (NULL);
-	}
-	while (i < x)
-	{
-		tab[0][i] = s[j];
+		while (s[j] && s[j] == c)
+			j++;
+		start = j;
+		while (s[j] && s[j] != c)
+			j++;
+		tab[i] = ft_substr(s, start, j - start);
+		if (!tab[i])
+		{
+			ft_free(tab);
+			return (NULL);
+		}
 		i++;
-		j++;
 	}
-	tab[0][i] = '\0';
-	return ((char *)&s[x + 1]);
+	return (tab);
 }
 
 char	**ft_split(const char *s, char c)
 {
-	size_t	j;
-	size_t	y;
 	char	**tab;
+	size_t	word_count;
 
 	if (!s)
 		return (NULL);
-	j = 0;
-	y = ft_strcount(s, c);
-	tab = ft_calloc(sizeof(char *), (y + 1));
+	word_count = ft_strcount(s, c);
+	tab = ft_calloc(sizeof(char *), word_count + 1);
 	if (!tab)
 		return (NULL);
-	if (!c)
-		return (tab);
-	while (j < y)
-	{
-		s = ft_strfill(&tab[j], s, c);
-		if (!s)
-			return (NULL);
-		j++;
-	}
-	return (tab);
+	return (ft_strfill(tab, s, c, word_count));
 }
