@@ -5,38 +5,46 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adraji <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 20:34:43 by adraji            #+#    #+#             */
-/*   Updated: 2025/10/16 20:34:46 by adraji           ###   ########.fr       */
+/*   Created: 2025/10/25 10:01:13 by adraji            #+#    #+#             */
+/*   Updated: 2025/10/25 10:18:42 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static unsigned long	ft_number(const char *nptr, size_t i, int s)
+static long	ft_number(const char *nptr, size_t i, int s)
 {
 	unsigned long	n;
+	int				digit;
 
 	n = 0;
 	while (nptr[i] && nptr[i] < 58 && nptr[i] > 47)
 	{
-		if (n > LONG_MAX)
+		digit = nptr[i] - 48;
+		if (n > LONG_MAX / 10)
 		{
 			if (s < 0)
 				return (0);
 			return (-1);
 		}
 		n *= 10;
-		n += nptr[i] - 48;
+		if (n > LONG_MAX / 10 && digit > 7)
+		{
+			if (s < 0)
+				return (0);
+			return (-1);
+		}
+		n += digit;
 		i++;
 	}
-	return (n);
+	return ((long)n);
 }
 
 int	ft_atoi(const char *nptr)
 {
-	size_t			i;
-	unsigned long	n;
-	int				s;
+	size_t	i;
+	long	n;
+	int		s;
 
 	i = 0;
 	n = 0;
@@ -50,11 +58,5 @@ int	ft_atoi(const char *nptr)
 		i++;
 	}
 	n = ft_number(nptr, i, s);
-	if (n > LONG_MAX)
-	{
-		if (s < 0)
-			return (0);
-		return (-1);
-	}
 	return (n * s);
 }

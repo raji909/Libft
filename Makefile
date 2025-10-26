@@ -16,7 +16,6 @@ SRC_BONUS	= ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 			  ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 
 OBJ			= $(SRC:.c=.o)
-
 OBJ_BONUS	= $(SRC_BONUS:.c=.o)
 
 all: $(NAME)
@@ -24,21 +23,18 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
-.bonus_done: $(OBJ) $(OBJ_BONUS)
+bonus: $(OBJ) $(OBJ_BONUS)
 	ar rcs $(NAME) $(OBJ) $(OBJ_BONUS)
-	touch .bonus_done
-
-bonus: .bonus_done
 
 %.o: %.c $(LIB)
 	$(CC) $(FLAG) -c $< -o $@
 
 clean:
-	rm -f $(OBJ) $(OBJ_BONUS) .bonus_done
+	rm -f $(OBJ) $(OBJ_BONUS)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re

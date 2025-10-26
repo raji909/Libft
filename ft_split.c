@@ -76,7 +76,7 @@ char	**ft_split(const char *s, char c)
 	if (!s)
 		return (NULL);
 	word_count = ft_strcount(s, c);
-	tab = ft_calloc(sizeof(char *), word_count + 1);
+	tab = ft_calloc(word_count + 1, sizeof(char *));
 	if (!tab)
 		return (NULL);
 	return (ft_strfill(tab, s, c, word_count));

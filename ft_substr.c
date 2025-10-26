@@ -39,12 +39,12 @@ static char	*ft_empty(void)
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned int	slen;
-	char			*sub;
+	size_t	slen;
+	char	*sub;
 
 	if (!s)
 		return (NULL);
-	slen = (unsigned int)ft_strlen(s);
+	slen = ft_strlen(s);
 	if (slen <= start)
 		return (ft_empty());
 	sub = malloc(sizeof(char) * (len + 1));
