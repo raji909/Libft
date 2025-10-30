@@ -1,5 +1,5 @@
 NAME		= libft.a
-LIB			= libft.h
+HEADER		= libft.h
 
 CC			= cc
 FLAG		= -Wall -Wextra -Werror
@@ -26,7 +26,7 @@ $(NAME): $(OBJ)
 bonus: $(OBJ) $(OBJ_BONUS)
 	ar rcs $(NAME) $(OBJ) $(OBJ_BONUS)
 
-%.o: %.c $(LIB)
+%.o: %.c $(HEADER)
 	$(CC) $(FLAG) -c $< -o $@
 
 clean:
