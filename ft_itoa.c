@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adraji <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 20:34:54 by adraji            #+#    #+#             */
-/*   Updated: 2025/10/16 20:34:57 by adraji           ###   ########.fr       */
+/*   Updated: 2025/10/31 12:30:44 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 
 static size_t	ft_sizenb(int n)
 {
-	size_t			size;
+	size_t	size;
 	unsigned int	nb;
 
 	size = 0;
-	nb = n;
-	if (n < 0)
+	if (n <= 0)
 	{
-		nb = -n;
-		size++;
+		size++;        // للمسافة الخاصة بـ '-' أو '0'
+		nb = - (unsigned int)n;
 	}
+	else
+		nb = n;
 	while (nb > 0)
 	{
 		nb /= 10;
@@ -32,7 +33,7 @@ static size_t	ft_sizenb(int n)
 	return (size);
 }
 
-static char	*ft_revers(char *s)
+static void	ft_revers(char *s)
 {
 	int		i;
 	int		j;
@@ -46,7 +47,6 @@ static char	*ft_revers(char *s)
 		s[i++] = s[j];
 		s[j--] = t;
 	}
-	return (s);
 }
 
 char	*ft_itoa(int n)
@@ -55,22 +55,24 @@ char	*ft_itoa(int n)
 	int				i;
 	unsigned int	nbr;
 
-	if (n == 0)
-		return (ft_strdup("0"));
 	nb = malloc(sizeof(char) * (ft_sizenb(n) + 1));
 	if (!nb)
 		return (NULL);
 	i = 0;
-	nbr = n;
+	if (n == 0)
+		nb[i++] = '0';
 	if (n < 0)
-		nbr = -n;
+		nbr = - (unsigned int)n;
+	else
+		nbr = n;
 	while (nbr > 0)
 	{
-		nb[i++] = (nbr % 10) + 48;
+		nb[i++] = (nbr % 10) + '0';
 		nbr /= 10;
 	}
 	if (n < 0)
 		nb[i++] = '-';
 	nb[i] = '\0';
-	return (ft_revers(nb));
+	ft_revers(nb);
+	return (nb);
 }
