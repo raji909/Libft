@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adraji <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 21:18:15 by adraji            #+#    #+#             */
-/*   Updated: 2025/10/19 21:18:17 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/07 10:40:32 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 int	ft_lstsize(t_list *lst)
 {
 	size_t	size;
-	t_list	*tmp;
 
 	size = 0;
-	tmp = lst;
-	while (tmp)
+	while (lst)
 	{
-		tmp = tmp->next;
+		lst = lst->next;
 		size++;
 	}
 	return (size);

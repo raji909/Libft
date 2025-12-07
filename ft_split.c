@@ -12,17 +12,14 @@
 
 #include "libft.h"
 
-static void	ft_free(char **tab)
+static void	*ft_free(char **tab)
 {
 	size_t	i;
 
 	i = 0;
 	while (tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
+		free(tab[i++]);
+	return (free(tab), NULL);
 }
 
 static size_t	ft_strcount(const char *s, char c)
@@ -59,10 +56,7 @@ static char	**ft_strfill(char **tab, const char *s, char c, size_t word_count)
 			j++;
 		tab[i] = ft_substr(s, start, j - start);
 		if (!tab[i])
-		{
-			ft_free(tab);
-			return (NULL);
-		}
+			return (ft_free(tab));
 		i++;
 	}
 	return (tab);

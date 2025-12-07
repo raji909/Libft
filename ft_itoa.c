@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 20:34:54 by adraji            #+#    #+#             */
-/*   Updated: 2025/10/31 12:30:44 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/02 12:43:29 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,19 @@
 
 static size_t	ft_sizenb(int n)
 {
-	size_t	size;
+	size_t			size;
 	unsigned int	nb;
 
 	size = 0;
-	if (n <= 0)
-	{
-		size++;        // للمسافة الخاصة بـ '-' أو '0'
-		nb = - (unsigned int)n;
-	}
-	else
-		nb = n;
+	nb = (unsigned int)n;
+	if (nb <= 0)
+		nb = -nb;
 	while (nb > 0)
 	{
 		nb /= 10;
 		size++;
 	}
-	return (size);
+	return (size + (n <= 0));
 }
 
 static void	ft_revers(char *s)

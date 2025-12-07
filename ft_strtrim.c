@@ -25,18 +25,18 @@ static int	ft_isset(const char c, const char *set)
 
 static size_t	ft_lentrim(const char *s1, const char *set)
 {
-	size_t	i;
-	size_t	f;
+	size_t	start_trim;
+	size_t	end_trim;
 
-	i = 0;
-	f = ft_strlen(s1) - 1;
-	while (s1[i] && ft_isset(s1[i], set))
-		i++;
-	if (i > f)
+	start_trim = 0;
+	end_trim = ft_strlen(s1) - 1;
+	while (s1[start_trim] && ft_isset(s1[start_trim], set))
+		start_trim++;
+	if (start_trim > end_trim)
 		return (0);
-	while (ft_isset(s1[f], set))
-		f--;
-	return ((f - i) + 1);
+	while (ft_isset(s1[end_trim], set))
+		end_trim--;
+	return ((end_trim - start_trim) + 1);
 }
 
 char	*ft_strtrim(const char *s1, const char *set)
@@ -45,9 +45,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 	size_t	len;
 	char	*trim;
 
-	if (!s1)
-		return (NULL);
-	if (!set || !*set)
+	if (!s1 || !set || !*set)
 		return (ft_strdup(s1));
 	i = 0;
 	len = ft_lentrim(s1, set);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adraji <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 15:50:54 by adraji            #+#    #+#             */
-/*   Updated: 2025/10/16 15:57:55 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/02 10:29:30 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	p = malloc(nmemb * size);
 	if (!p)
 		return (NULL);
-	ft_bzero(p, nmemb * size);
+	ft_memset(p, 0, nmemb * size);
 	return (p);
 }

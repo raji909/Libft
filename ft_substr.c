@@ -26,17 +26,6 @@ static char	*ft_strncpy(char *dst, const char *src, size_t n)
 	return (dst);
 }
 
-static char	*ft_empty(void)
-{
-	char	*empty;
-
-	empty = malloc(sizeof(char));
-	if (!empty)
-		return (NULL);
-	*empty = '\0';
-	return (empty);
-}
-
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	slen;
@@ -46,9 +35,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	slen = ft_strlen(s);
 	if (slen <= start)
-		return (ft_empty());
+		return (ft_strdup(""));
 	sub = malloc(sizeof(char) * (len + 1));
 	if (!sub)
 		return (NULL);
-	return (ft_strncpy(sub, &s[start], len));
+	return (ft_strlcpY(sub, &s[start], len));
 }

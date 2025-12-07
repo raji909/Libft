@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adraji <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 21:12:09 by adraji            #+#    #+#             */
-/*   Updated: 2025/10/16 21:30:38 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/02 12:49:21 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t	slen;
 	size_t	i;
 
-	slen = ft_strlen(src);
 	if (size > 0)
 	{
 		i = 0;
@@ -28,5 +26,5 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		}
 		dst[i] = '\0';
 	}
-	return (slen);
+	return (ft_strlen(src));
 }

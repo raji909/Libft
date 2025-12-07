@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adraji <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 21:17:45 by adraji            #+#    #+#             */
-/*   Updated: 2025/10/19 21:17:46 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/07 10:35:30 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,7 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*last;
-
-	if (!lst)
-		return (NULL);
-	last = lst;
-	while (last->next)
-		last = last->next;
-	return (last);
+	while (lst && lst->next)
+		lst = lst->next;
+	return (lst);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adraji <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/19 21:17:56 by adraji            #+#    #+#             */
-/*   Updated: 2025/10/19 21:17:57 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/07 10:39:18 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*))
 	{
 		tmp->next = ft_lstnew(f(lst->content));
 		if (!tmp->next)
-		{
-			ft_lstclear(&list, del);
-			return (NULL);
-		}
+			return (ft_lstclear(&list, del), NULL);
 		tmp = tmp->next;
 		lst = lst->next;
 	}
