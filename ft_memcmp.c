@@ -6,7 +6,7 @@
 /*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 16:29:54 by adraji            #+#    #+#             */
-/*   Updated: 2025/12/02 12:27:13 by adraji           ###   ########.fr       */
+/*   Updated: 2025/12/07 10:45:00 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		if (((unsigned char *)s1)[i] != ((unsigned char *)s1)[i])
-			return (((unsigned char *)s1)[i] - ((unsigned char *)s1)[i]);
+		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
+			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
 		i++;
 	}
 	return (0);
