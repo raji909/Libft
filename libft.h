@@ -3,21 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adraji <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: adraji <adraji@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/16 16:07:01 by adraji            #+#    #+#             */
-/*   Updated: 2025/10/16 16:07:17 by adraji           ###   ########.fr       */
+/*   Created: 2025/12/12 07:49:33 by adraji            #+#    #+#             */
+/*   Updated: 2025/12/15 07:09:29 by adraji           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# define LONG_MAX __LONG_MAX__
-# define SIZE_MAX __SIZE_MAX__
-
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
+
+# define LM LONG_MAX
+
+//typedef:
+typedef char t_signe;
 
 //struct:
 typedef struct s_list
