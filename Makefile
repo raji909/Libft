@@ -27,7 +27,7 @@ bonus: $(OBJ) $(OBJ_BONUS)
 	ar rcs $(NAME) $(OBJ) $(OBJ_BONUS)
 
 %.o: %.c $(HEADER)
-	$(CC) $(FLAG) -c $< -o $@
+	$(CC) $(FLAG) -c $< -o && clear
 
 clean:
 	rm -f $(OBJ) $(OBJ_BONUS)
@@ -37,4 +37,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: clean
