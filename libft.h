@@ -20,6 +20,7 @@
 # define LM LONG_MAX
 
 //typedef:
+typedef char t_bool;
 typedef char t_signe;
 
 //struct:
